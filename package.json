@@ -1,0 +1,28 @@
+{
+  "name": "reactive-node",
+  "version": "0.1.0",
+  "description": "Boilerplate for a React application served by a node/express backend.",
+  "author": "Joshua Scott",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "date-fns": "^2.0.0-alpha.16",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.13"
+  },
+  "devDependencies": {
+    "concurrently": "^4.0.1",
+    "nodemon": "^1.18.4"
+  },
+  "scripts": {
+    "client:install": "cd client && yarn",
+    "client:dev": "cd client && yarn start",
+    "client:build": "yarn client:install && cd client && yarn build",
+    "server:dev": "nodemon server.js",
+    "server:prod": "NODE_ENV=production node server.js",
+    "dev": "concurrently \"yarn server:dev\" \"yarn client:dev\" --kill-others-on-fail --names \"💻,📦\" --prefix name",
+    "prod": "yarn client:build && yarn server:prod"
+  }
+}
